@@ -1,0 +1,16 @@
+point1=[0 0.0101];
+point2=[0.00524 0.25];
+lineOperationY=@(x)(((point2(2)-point1(2))/(point2(1)-point1(1)))*(x-point1(1))+point1(2));
+lineBalanceY=@(x)(20.7*x);
+lineBalanceX=@(y)(y/20.7);
+balanceY=point2(2);
+operationX,operationY=0
+while(operationY<point2(2))&&(operationX<point2(1))
+    balanceX=lineBalanceX(balanceY);
+    operationX=balanceX;
+    operationY=lineOperationY(OperationX);
+    balanceY=operationY;
+    count=count+1;
+end
+disp(count)
+
